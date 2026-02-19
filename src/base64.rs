@@ -1,7 +1,7 @@
 //! Libsodium Base64 encoding/decoding helper functions
-use ffi;
+use crate::ffi;
 #[cfg(not(feature = "std"))]
-use prelude::*;
+use crate::prelude::*;
 use std::ptr;
 
 /// Supported variants of Base64 encoding/decoding

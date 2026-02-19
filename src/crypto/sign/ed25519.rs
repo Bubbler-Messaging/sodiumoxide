@@ -8,10 +8,10 @@ pub use ed25519::{
     Error, Signature,
 };
 
-use ffi;
-use libc::c_ulonglong;
+use crate::ffi;
+use ::libc::c_ulonglong;
 #[cfg(not(feature = "std"))]
-use prelude::*;
+use crate::prelude::*;
 use std::fmt;
 use std::mem;
 
@@ -164,7 +164,7 @@ pub fn sign_detached(m: &[u8], sk: &SecretKey) -> Signature {
         );
     }
     assert_eq!(siglen, SIGNATUREBYTES as c_ulonglong);
-    Signature::new(sig)
+    Signature::from_bytes(&sig)
 }
 
 /// `verify_detached()` verifies the signature in `sig` against the message `m`
@@ -173,7 +173,7 @@ pub fn sign_detached(m: &[u8], sk: &SecretKey) -> Signature {
 pub fn verify_detached(sig: &Signature, m: &[u8], pk: &PublicKey) -> bool {
     let ret = unsafe {
         ffi::crypto_sign_ed25519_verify_detached(
-            sig.as_ref().as_ptr(),
+            sig.to_bytes().as_ptr(),
             m.as_ptr(),
             m.len() as c_ulonglong,
             pk.0.as_ptr(),
@@ -220,7 +220,7 @@ impl State {
             );
         }
         assert_eq!(siglen, SIGNATUREBYTES as c_ulonglong);
-        Signature::new(sig)
+        Signature::from_bytes(&sig)
     }
 
     /// `verify` verifies the signature in `sm` using the signer's public key `pk`.
@@ -281,7 +281,7 @@ pub fn to_curve25519_sk(ed25519_sk: &SecretKey) -> Result<box_::SecretKey, ()> {
 #[cfg(test)]
 mod test {
     use super::*;
-    use hex;
+    use crate::hex;
 
     #[test]
     fn test_sk_to_pk() {
@@ -291,7 +291,7 @@ mod test {
 
     #[test]
     fn test_sign_verify() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let (pk, sk) = gen_keypair();
             let m = randombytes(i);
@@ -303,7 +303,7 @@ mod test {
 
     #[test]
     fn test_sign_verify_tamper() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..32usize {
             let (pk, sk) = gen_keypair();
             let m = randombytes(i);
@@ -318,7 +318,7 @@ mod test {
 
     #[test]
     fn test_sign_verify_detached() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let (pk, sk) = gen_keypair();
             let m = randombytes(i);
@@ -329,14 +329,14 @@ mod test {
 
     #[test]
     fn test_sign_verify_detached_tamper() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..32usize {
             let (pk, sk) = gen_keypair();
             let m = randombytes(i);
             let mut sig = sign_detached(&m, &sk).to_bytes();
             for j in 0..SIGNATUREBYTES {
                 sig[j] ^= 0x20;
-                assert!(!verify_detached(&Signature::new(sig), &m, &pk));
+                assert!(!verify_detached(&Signature::from_bytes(&sig), &m, &pk));
                 sig[j] ^= 0x20;
             }
         }
@@ -344,7 +344,7 @@ mod test {
 
     #[test]
     fn test_sign_verify_seed() {
-        use randombytes::{randombytes, randombytes_into};
+        use crate::randombytes::{randombytes, randombytes_into};
         for i in 0..256usize {
             let mut seedbuf = [0; 32];
             randombytes_into(&mut seedbuf);
@@ -359,7 +359,7 @@ mod test {
 
     #[test]
     fn test_sign_verify_tamper_seed() {
-        use randombytes::{randombytes, randombytes_into};
+        use crate::randombytes::{randombytes, randombytes_into};
         for i in 0..32usize {
             let mut seedbuf = [0; 32];
             randombytes_into(&mut seedbuf);
@@ -435,7 +435,7 @@ mod test {
 
     #[test]
     fn test_streaming_sign() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let (pk, sk) = gen_keypair();
             let m = randombytes(i);
@@ -496,7 +496,7 @@ mod test {
 
     #[test]
     fn test_streaming_copy() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         let i = 256;
         let (pk, sk) = gen_keypair();
         let m = randombytes(i);
@@ -512,7 +512,7 @@ mod test {
 
     #[test]
     fn test_streaming_default() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         let i = 256;
         let (pk, sk) = gen_keypair();
         let m = randombytes(i);
@@ -534,7 +534,7 @@ mod test {
 
     #[test]
     fn test_chunks_sign() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         let (pk, sk) = gen_keypair();
         let mut creation_state = State::init();
         let mut validator_state = State::init();
@@ -561,7 +561,7 @@ mod test {
 mod bench {
     extern crate test;
     use super::*;
-    use randombytes::randombytes;
+    use crate::randombytes::randombytes;
 
     const BENCH_SIZES: [usize; 14] = [0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096];
 

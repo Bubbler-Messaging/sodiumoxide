@@ -2,6 +2,7 @@
 name = "testcrate"
 build = "build.rs"
 version = "0.0.1"
+edition = "2024"
 
 [dependencies]
 libsodium-sys = { path = "../libsodium-sys" }

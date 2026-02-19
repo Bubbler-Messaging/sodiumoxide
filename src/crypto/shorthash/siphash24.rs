@@ -1,8 +1,8 @@
 //! `SipHash-2-4`
 
-use ffi;
-use libc::c_ulonglong;
-use randombytes::randombytes_into;
+use crate::ffi;
+use ::libc::c_ulonglong;
+use crate::randombytes::randombytes_into;
 
 /// Number of bytes in a `Digest`.
 pub const DIGESTBYTES: usize = ffi::crypto_shorthash_siphash24_BYTES as usize;
@@ -137,7 +137,7 @@ mod test {
     #[cfg(feature = "serde")]
     #[test]
     fn test_serialisation() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         use test_utils::round_trip;
         for i in 0..64usize {
             let k = gen_key();
@@ -154,7 +154,7 @@ mod test {
 mod bench {
     extern crate test;
     use super::*;
-    use randombytes::randombytes;
+    use crate::randombytes::randombytes;
 
     const BENCH_SIZES: [usize; 14] = [0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096];
 

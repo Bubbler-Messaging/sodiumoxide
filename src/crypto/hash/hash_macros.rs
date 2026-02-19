@@ -7,7 +7,7 @@ macro_rules! hash_module (($hash_name:ident,
                            $blockbytes:expr) => (
 
 use std::mem;
-use libc::c_ulonglong;
+use ::libc::c_ulonglong;
 
 /// Number of bytes in a `Digest`.
 pub const DIGESTBYTES: usize = $hashbytes as usize;
@@ -76,7 +76,7 @@ mod test_m {
 
     #[test]
     fn test_hash_multipart() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let m = randombytes(i);
             let h = hash(&m);
@@ -98,7 +98,7 @@ mod test_encode {
 
     #[test]
     fn test_serialisation() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..32usize {
             let m = randombytes(i);
             let d = hash(&m[..]);
@@ -111,7 +111,7 @@ mod test_encode {
 #[cfg(test)]
 mod bench_m {
     extern crate test;
-    use randombytes::randombytes;
+    use crate::randombytes::randombytes;
     use super::*;
 
     const BENCH_SIZES: [usize; 14] = [0, 1, 2, 4, 8, 16, 32, 64,

@@ -2,7 +2,7 @@
 //! unlimited number of messages with the same key, without any practical limit
 //! to the size of a message (up to ~ 2^64 bytes).
 
-use ffi::{
+use crate::ffi::{
     crypto_aead_chacha20poly1305_ABYTES, crypto_aead_chacha20poly1305_KEYBYTES,
     crypto_aead_chacha20poly1305_NPUBBYTES, crypto_aead_chacha20poly1305_decrypt,
     crypto_aead_chacha20poly1305_decrypt_detached, crypto_aead_chacha20poly1305_encrypt,

@@ -5,10 +5,10 @@
 //! This function is conjectured to meet the standard notions of privacy and
 //! third-party unforgeability.
 
-use crypto::nonce::gen_random_nonce;
-use ffi;
+use crate::crypto::nonce::gen_random_nonce;
+use crate::ffi;
 #[cfg(not(feature = "std"))]
-use prelude::*;
+use crate::prelude::*;
 
 /// Number of bytes in a `Seed`.
 pub const SEEDBYTES: usize = ffi::crypto_box_curve25519xsalsa20poly1305_SEEDBYTES as usize;
@@ -335,7 +335,7 @@ mod test {
 
     #[test]
     fn test_seal_open() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let (pk1, sk1) = gen_keypair();
             let (pk2, sk2) = gen_keypair();
@@ -349,7 +349,7 @@ mod test {
 
     #[test]
     fn test_seal_open_precomputed() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let (pk1, sk1) = gen_keypair();
             let (pk2, sk2) = gen_keypair();
@@ -368,7 +368,7 @@ mod test {
 
     #[test]
     fn test_seal_open_tamper() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..32usize {
             let (pk1, sk1) = gen_keypair();
             let (pk2, sk2) = gen_keypair();
@@ -385,7 +385,7 @@ mod test {
 
     #[test]
     fn test_seal_open_precomputed_tamper() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..32usize {
             let (pk1, sk1) = gen_keypair();
             let (pk2, sk2) = gen_keypair();
@@ -404,7 +404,7 @@ mod test {
 
     #[test]
     fn test_seal_open_seed() {
-        use randombytes::{randombytes, randombytes_into};
+        use crate::randombytes::{randombytes, randombytes_into};
         for i in 0..256usize {
             let mut seedbuf = [0; 32];
             randombytes_into(&mut seedbuf);
@@ -421,7 +421,7 @@ mod test {
 
     #[test]
     fn test_seal_open_seed_tamper() {
-        use randombytes::{randombytes, randombytes_into};
+        use crate::randombytes::{randombytes, randombytes_into};
         for i in 0..32usize {
             let mut seedbuf = [0; 32];
             randombytes_into(&mut seedbuf);
@@ -441,7 +441,7 @@ mod test {
 
     #[test]
     fn test_seal_open_detached() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let (pk1, sk1) = gen_keypair();
             let (pk2, sk2) = gen_keypair();
@@ -456,7 +456,7 @@ mod test {
 
     #[test]
     fn test_seal_combined_then_open_detached() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let (pk1, sk1) = gen_keypair();
             let (pk2, sk2) = gen_keypair();
@@ -472,7 +472,7 @@ mod test {
 
     #[test]
     fn test_seal_detached_then_open_combined() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let (pk1, sk1) = gen_keypair();
             let (pk2, sk2) = gen_keypair();
@@ -489,7 +489,7 @@ mod test {
 
     #[test]
     fn test_seal_open_detached_tamper() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..32usize {
             let (pk1, sk1) = gen_keypair();
             let (pk2, sk2) = gen_keypair();
@@ -532,7 +532,7 @@ mod test {
 
     #[test]
     fn test_seal_open_detached_precomputed() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let (pk1, sk1) = gen_keypair();
             let (pk2, sk2) = gen_keypair();
@@ -549,7 +549,7 @@ mod test {
 
     #[test]
     fn test_seal_combined_then_open_detached_precomputed() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let (pk1, sk1) = gen_keypair();
             let (pk2, sk2) = gen_keypair();
@@ -567,7 +567,7 @@ mod test {
 
     #[test]
     fn test_seal_detached_precomputed_then_open_combined() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let (pk1, sk1) = gen_keypair();
             let (pk2, sk2) = gen_keypair();
@@ -586,7 +586,7 @@ mod test {
 
     #[test]
     fn test_seal_open_detached_precomputed_tamper() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..32usize {
             let (pk1, sk1) = gen_keypair();
             let (pk2, sk2) = gen_keypair();
@@ -762,7 +762,7 @@ mod test {
 mod bench {
     extern crate test;
     use super::*;
-    use randombytes::randombytes;
+    use crate::randombytes::randombytes;
 
     const BENCH_SIZES: [usize; 14] = [0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096];
 

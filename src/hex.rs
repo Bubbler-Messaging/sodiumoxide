@@ -1,7 +1,7 @@
 //! Libsodium hexadecimal encoding/decoding helper functions
-use ffi;
+use crate::ffi;
 #[cfg(not(feature = "std"))]
-use prelude::*;
+use crate::prelude::*;
 use std::ptr;
 
 /// Encodes byte sequence into a hexadecimal string.

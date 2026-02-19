@@ -15,7 +15,7 @@
 //! instruction (Westmere and beyond).
 
 mod aes_impl {
-    use ffi::{
+    use crate::ffi::{
         crypto_aead_aes256gcm_ABYTES, crypto_aead_aes256gcm_KEYBYTES,
         crypto_aead_aes256gcm_NPUBBYTES, crypto_aead_aes256gcm_decrypt,
         crypto_aead_aes256gcm_decrypt_detached, crypto_aead_aes256gcm_encrypt,
@@ -27,7 +27,7 @@ mod aes_impl {
     /// WARNING: You must call [init](crate::init) before calling this function; if you do not
     /// `is_available` will always return false even if the runtime supports aes256gcm.
     pub fn is_available() -> bool {
-        unsafe { ffi::crypto_aead_aes256gcm_is_available() == 1 }
+        unsafe { crate::ffi::crypto_aead_aes256gcm_is_available() == 1 }
     }
 
     aead_module!(
@@ -79,7 +79,7 @@ mod aes_impl {
 
 mod aes_api {
     use super::aes_impl;
-    use crypto::nonce::gen_random_nonce;
+    use crate::crypto::nonce::gen_random_nonce;
     #[cfg(not(feature = "std"))]
     use prelude::Vec;
 
@@ -97,7 +97,7 @@ mod aes_api {
         /// to do so will result in `Err(_)` being returned even if the runtime
         /// hardware supports AES.
         pub fn new() -> Result<Self, ()> {
-            if unsafe { ffi::crypto_aead_aes256gcm_is_available() } == 1 {
+            if unsafe { crate::ffi::crypto_aead_aes256gcm_is_available() } == 1 {
                 Ok(Self)
             } else {
                 Err(())
@@ -202,7 +202,7 @@ mod aes_api {
         #[test]
         fn test_seal_open() {
             init().unwrap();
-            use randombytes::randombytes;
+            use crate::randombytes::randombytes;
             let aes = Aes256Gcm::new().unwrap();
             for i in 0..256usize {
                 let k = aes.gen_key();
@@ -218,7 +218,7 @@ mod aes_api {
         #[test]
         fn test_seal_open_detached() {
             init().unwrap();
-            use randombytes::randombytes;
+            use crate::randombytes::randombytes;
             let aes = Aes256Gcm::new().unwrap();
             for i in 0..256usize {
                 let k = aes.gen_key();

@@ -17,7 +17,7 @@
 //! via side channels, but the sodium_pad() and sodium_unpad() functions themselves try to minimize
 //! side channels for a given length & <block size mask> value.
 
-use ffi;
+use crate::ffi;
 
 /// The `pad()` function adds padding data to a buffer buf whose original size is `unpadded_buflen`
 /// in order to extend its total length to a multiple of blocksize.

@@ -6,7 +6,7 @@
 //! inspire satisfactory levels of confidence. One can hope that NIST's
 //! SHA-3 competition will improve the situation.
 
-use ffi::{
+use crate::ffi::{
     crypto_hash_sha512, crypto_hash_sha512_BYTES, crypto_hash_sha512_final,
     crypto_hash_sha512_init, crypto_hash_sha512_state, crypto_hash_sha512_update,
 };
@@ -24,7 +24,7 @@ hash_module!(
 #[cfg(test)]
 mod test {
     use super::*;
-    use hex;
+    use crate::hex;
     #[cfg(not(feature = "std"))]
     use prelude::*;
 

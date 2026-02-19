@@ -1,4 +1,4 @@
-use ffi::crypto_generichash_BYTES_MAX;
+use crate::ffi::crypto_generichash_BYTES_MAX;
 use std::cmp::{Eq, Ordering, PartialEq, PartialOrd};
 use std::fmt::{Debug, Formatter};
 use std::hash::{Hash, Hasher};
@@ -31,7 +31,7 @@ impl Debug for Digest {
 
 impl PartialEq for Digest {
     fn eq(&self, other: &Digest) -> bool {
-        use utils::memcmp;
+        use crate::utils::memcmp;
         if other.len != self.len {
             return false;
         }

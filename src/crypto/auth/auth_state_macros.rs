@@ -17,7 +17,7 @@ macro_rules! auth_state (($state_name:ident,
                           $tagbytes:expr) => (
 
 use std::mem;
-use ffi;
+use crate::ffi;
 
 /// Authentication `State`
 ///
@@ -80,7 +80,7 @@ mod test_s {
 
     #[test]
     fn test_auth_eq_auth_state() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let k = gen_key();
             let m = randombytes(i);
@@ -94,7 +94,7 @@ mod test_s {
 
     #[test]
     fn test_auth_eq_auth_state_chunked() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let k = gen_key();
             let m = randombytes(i);

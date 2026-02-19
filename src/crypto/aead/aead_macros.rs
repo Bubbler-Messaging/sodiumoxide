@@ -7,10 +7,10 @@ macro_rules! aead_module (($seal_name:ident,
                            $tagbytes:expr,
                            $test_gate:expr) => (
 
-#[cfg(not(feature = "std"))] use prelude::*;
-use libc::c_ulonglong;
+#[cfg(not(feature = "std"))] use $crate::prelude::*;
+use ::libc::c_ulonglong;
 use std::ptr;
-use randombytes::randombytes_into;
+use $crate::randombytes::randombytes_into;
 
 /// Number of bytes in a `Key`.
 pub const KEYBYTES: usize = $keybytes;
@@ -162,11 +162,11 @@ pub fn open_detached(c: &mut [u8], ad: Option<&[u8]>, t: &Tag, n: &Nonce, k: &Ke
 #[cfg(test)]
 mod test_m {
     use super::*;
-    use crypto::nonce::gen_random_nonce;
+    use $crate::crypto::nonce::gen_random_nonce;
 
     #[test]
     fn test_seal_open() {
-        use randombytes::randombytes;
+        use $crate::randombytes::randombytes;
         if !$test_gate {
           return
         }
@@ -183,7 +183,7 @@ mod test_m {
 
     #[test]
     fn test_seal_open_tamper() {
-        use randombytes::randombytes;
+        use $crate::randombytes::randombytes;
         if !$test_gate {
           return
         }
@@ -210,7 +210,7 @@ mod test_m {
 
     #[test]
     fn test_seal_open_detached() {
-        use randombytes::randombytes;
+        use $crate::randombytes::randombytes;
         if !$test_gate {
           return
         }
@@ -228,7 +228,7 @@ mod test_m {
 
     #[test]
     fn test_seal_open_detached_tamper() {
-        use randombytes::randombytes;
+        use $crate::randombytes::randombytes;
         if !$test_gate {
           return
         }
@@ -261,7 +261,7 @@ mod test_m {
 
     #[test]
     fn test_seal_open_detached_same() {
-        use randombytes::randombytes;
+        use $crate::randombytes::randombytes;
         if !$test_gate {
           return
         }

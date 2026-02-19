@@ -5,11 +5,11 @@
 //! This function is conjectured to meet the standard notions of privacy and
 //! authenticity.
 
-use crypto::nonce::gen_random_nonce;
-use ffi;
+use crate::crypto::nonce::gen_random_nonce;
+use crate::ffi;
 #[cfg(not(feature = "std"))]
-use prelude::*;
-use randombytes::randombytes_into;
+use crate::prelude::*;
+use crate::randombytes::randombytes_into;
 
 /// Number of bytes in `Key`.
 pub const KEYBYTES: usize = ffi::crypto_secretbox_xsalsa20poly1305_KEYBYTES as usize;
@@ -152,7 +152,7 @@ mod test {
 
     #[test]
     fn test_seal_open() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let k = gen_key();
             let m = randombytes(i);
@@ -165,7 +165,7 @@ mod test {
 
     #[test]
     fn test_seal_open_tamper() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..32usize {
             let k = gen_key();
             let m = randombytes(i);
@@ -185,7 +185,7 @@ mod test {
 
     #[test]
     fn test_seal_open_detached() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let k = gen_key();
             let m = randombytes(i);
@@ -199,7 +199,7 @@ mod test {
 
     #[test]
     fn test_seal_combined_then_open_detached() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let k = gen_key();
             let m = randombytes(i);
@@ -214,7 +214,7 @@ mod test {
 
     #[test]
     fn test_seal_detached_then_open_combined() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..256usize {
             let k = gen_key();
             let m = randombytes(i);
@@ -230,7 +230,7 @@ mod test {
 
     #[test]
     fn test_seal_open_detached_tamper() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..32usize {
             let k = gen_key();
             let mut m = randombytes(i);
@@ -335,7 +335,7 @@ mod test {
 mod bench {
     extern crate test;
     use super::*;
-    use randombytes::randombytes;
+    use crate::randombytes::randombytes;
 
     const BENCH_SIZES: [usize; 14] = [0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096];
 

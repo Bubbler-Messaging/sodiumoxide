@@ -1,5 +1,5 @@
 //! Libsodium utility functions
-use ffi;
+use crate::ffi;
 
 /// `memzero()` tries to effectively zero out the data in `x` even if
 /// optimizations are being applied to the code.
@@ -96,7 +96,7 @@ mod test {
 
     #[test]
     fn test_memcmp() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
 
         for i in 0..256 {
             let x = randombytes(i);

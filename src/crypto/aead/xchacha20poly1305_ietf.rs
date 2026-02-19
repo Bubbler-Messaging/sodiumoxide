@@ -8,8 +8,8 @@
 //! For this reason, and if interoperability with other libraries is not a
 //! concern, this is the recommended AEAD construction.
 
-use crypto::nonce::gen_random_nonce;
-use ffi::{
+use crate::crypto::nonce::gen_random_nonce;
+use crate::ffi::{
     crypto_aead_xchacha20poly1305_ietf_ABYTES, crypto_aead_xchacha20poly1305_ietf_KEYBYTES,
     crypto_aead_xchacha20poly1305_ietf_NPUBBYTES, crypto_aead_xchacha20poly1305_ietf_decrypt,
     crypto_aead_xchacha20poly1305_ietf_decrypt_detached,

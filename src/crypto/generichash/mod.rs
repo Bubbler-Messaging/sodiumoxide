@@ -1,13 +1,13 @@
 //! `GenericHash`.
 //!
-use ffi::{
+use crate::ffi::{
     crypto_generichash, crypto_generichash_BYTES, crypto_generichash_BYTES_MAX,
     crypto_generichash_BYTES_MIN, crypto_generichash_KEYBYTES_MAX, crypto_generichash_KEYBYTES_MIN,
     crypto_generichash_final, crypto_generichash_init, crypto_generichash_state,
     crypto_generichash_update,
 };
 
-use libc::c_ulonglong;
+use ::libc::c_ulonglong;
 use std::mem;
 use std::ptr;
 
@@ -148,7 +148,7 @@ fn unwrap_key(key: Option<&[u8]>) -> Result<(*const u8, usize), ()> {
 #[cfg(test)]
 mod test {
     use super::*;
-    use hex;
+    use crate::hex;
     #[cfg(not(feature = "std"))]
     use prelude::*;
 

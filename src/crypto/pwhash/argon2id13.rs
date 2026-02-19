@@ -14,7 +14,7 @@
 //! Note: libsodium provides a limited version of the Argon2 function. The salt
 //! parameter is fixed at 128 bits and the parallelism parameter is fixed to 1.
 
-use ffi::{
+use crate::ffi::{
     crypto_pwhash_ALG_ARGON2ID13, crypto_pwhash_argon2id,
     crypto_pwhash_argon2id_MEMLIMIT_INTERACTIVE, crypto_pwhash_argon2id_MEMLIMIT_MODERATE,
     crypto_pwhash_argon2id_MEMLIMIT_SENSITIVE, crypto_pwhash_argon2id_OPSLIMIT_INTERACTIVE,
@@ -82,7 +82,7 @@ mod test {
     }
     #[test]
     fn test_pwhash_verify() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..32usize {
             let pw = randombytes(i);
             let pwh = pwhash(&pw, OpsLimit(16), MemLimit(8192)).unwrap();
@@ -92,7 +92,7 @@ mod test {
 
     #[test]
     fn test_pwhash_verify_tamper() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..16usize {
             let mut pw = randombytes(i);
             let pwh = pwhash(&pw, OpsLimit(16), MemLimit(8192)).unwrap();
@@ -107,7 +107,7 @@ mod test {
     #[cfg(feature = "serde")]
     #[test]
     fn test_serialisation() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         use test_utils::round_trip;
         for i in 0..32usize {
             let pw = randombytes(i);

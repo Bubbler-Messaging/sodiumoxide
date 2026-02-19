@@ -1,6 +1,6 @@
 //! Constant-time comparison of fixed-size vecs
 
-use ffi;
+use crate::ffi;
 
 /// `verify_16()` returns `true` if `x[0]`, `x[1]`, ..., `x[15]` are the
 /// same as `y[0]`, `y[1]`, ..., `y[15]`. Otherwise it returns `false`.
@@ -47,7 +47,7 @@ mod test {
 
     #[test]
     fn test_verify_16() {
-        use randombytes::randombytes_into;
+        use crate::randombytes::randombytes_into;
 
         for _ in 0usize..256 {
             let mut x = [0; 16];
@@ -65,7 +65,7 @@ mod test {
 
     #[test]
     fn test_verify_32() {
-        use randombytes::randombytes_into;
+        use crate::randombytes::randombytes_into;
 
         for _ in 0usize..256 {
             let mut x = [0; 32];
@@ -83,7 +83,7 @@ mod test {
 
     #[test]
     fn test_verify_64() {
-        use randombytes::randombytes_into;
+        use crate::randombytes::randombytes_into;
 
         for _ in 0usize..256 {
             let mut x = [0; 64];

@@ -1,5 +1,5 @@
 //! `crypto_secretstream_xchacha20poly1305`
-use ffi::{
+use crate::ffi::{
     crypto_secretstream_xchacha20poly1305_ABYTES,
     crypto_secretstream_xchacha20poly1305_HEADERBYTES,
     crypto_secretstream_xchacha20poly1305_KEYBYTES,
@@ -34,7 +34,7 @@ stream_module!(
 #[cfg(test)]
 mod test {
     use super::*;
-    use randombytes::randombytes_into;
+    use crate::randombytes::randombytes_into;
 
     // NOTE: it is impossible to allocate enough memory for `msg` below without
     // overflowing the stack. Further, from all the research I've done and what

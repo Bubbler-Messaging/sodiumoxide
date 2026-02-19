@@ -1,6 +1,6 @@
 //! `blake2b` is the current default key derivation scheme of `libsodium`.
 
-use ffi;
+use crate::ffi;
 
 /// Number of bytes in a `Key`.
 pub const KEYBYTES: usize = ffi::crypto_kdf_blake2b_KEYBYTES as usize;
@@ -25,7 +25,7 @@ new_type! {
 /// called `sodiumoxide::init()` once before using any other function
 /// from sodiumoxide.
 pub fn gen_key() -> Key {
-    use randombytes::randombytes_into;
+    use crate::randombytes::randombytes_into;
 
     let mut key = [0; KEYBYTES];
     randombytes_into(&mut key);

@@ -5,8 +5,8 @@ macro_rules! stream_module (($stream_name:ident,
                              $noncebytes:expr) => (
 
 #[cfg(not(feature = "std"))] use prelude::*;
-use libc::c_ulonglong;
-use randombytes::randombytes_into;
+use ::libc::c_ulonglong;
+use crate::randombytes::randombytes_into;
 
 /// Number of bytes in a `Key`.
 pub const KEYBYTES: usize = $keybytes;
@@ -140,11 +140,11 @@ pub fn stream_xor_ic_inplace(m: &mut [u8],
 #[cfg(test)]
 mod test_m {
     use super::*;
-    use crypto::nonce::gen_random_nonce;
+    use crate::crypto::nonce::gen_random_nonce;
 
     #[test]
     fn test_encrypt_decrypt() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..1024usize {
             let k = gen_key();
             let n = gen_random_nonce();
@@ -157,7 +157,7 @@ mod test_m {
 
     #[test]
     fn test_stream_xor() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..1024usize {
             let k = gen_key();
             let n = gen_random_nonce();
@@ -174,7 +174,7 @@ mod test_m {
 
     #[test]
     fn test_stream_xor_inplace() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..1024usize {
             let k = gen_key();
             let n = gen_random_nonce();
@@ -191,7 +191,7 @@ mod test_m {
 
     #[test]
     fn test_stream_xor_ic_same() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..1024usize {
             let k = gen_key();
             let n = gen_random_nonce();
@@ -204,7 +204,7 @@ mod test_m {
 
     #[test]
     fn test_stream_xor_ic_inplace() {
-        use randombytes::randombytes;
+        use crate::randombytes::randombytes;
         for i in 0..1024usize {
             let k = gen_key();
             let n = gen_random_nonce();

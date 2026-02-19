@@ -267,45 +267,45 @@ pub const crypto_stream_salsa208_NONCEBYTES: u32 = 8;
 pub type __uint8_t = libc::c_uchar;
 pub type __uint32_t = libc::c_uint;
 pub type __uint64_t = libc::c_ulong;
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_version_string() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_library_version_major() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_library_version_minor() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_library_minimal() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_init() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_set_misuse_handler(
         handler: ::core::option::Option<unsafe extern "C" fn()>,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_misuse();
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_is_available() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_nsecbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_npubbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_abytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_messagebytes_max() -> usize;
 }
 #[repr(C)]
@@ -315,10 +315,10 @@ pub struct crypto_aead_aes256gcm_state_ {
     pub opaque: [libc::c_uchar; 512usize],
 }
 pub type crypto_aead_aes256gcm_state = crypto_aead_aes256gcm_state_;
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_statebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_encrypt(
         c: *mut libc::c_uchar,
         clen_p: *mut libc::c_ulonglong,
@@ -331,7 +331,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_decrypt(
         m: *mut libc::c_uchar,
         mlen_p: *mut libc::c_ulonglong,
@@ -344,7 +344,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_encrypt_detached(
         c: *mut libc::c_uchar,
         mac: *mut libc::c_uchar,
@@ -358,7 +358,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_decrypt_detached(
         m: *mut libc::c_uchar,
         nsec: *mut libc::c_uchar,
@@ -371,13 +371,13 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_beforenm(
         ctx_: *mut crypto_aead_aes256gcm_state,
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_encrypt_afternm(
         c: *mut libc::c_uchar,
         clen_p: *mut libc::c_ulonglong,
@@ -390,7 +390,7 @@ extern "C" {
         ctx_: *const crypto_aead_aes256gcm_state,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_decrypt_afternm(
         m: *mut libc::c_uchar,
         mlen_p: *mut libc::c_ulonglong,
@@ -403,7 +403,7 @@ extern "C" {
         ctx_: *const crypto_aead_aes256gcm_state,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_encrypt_detached_afternm(
         c: *mut libc::c_uchar,
         mac: *mut libc::c_uchar,
@@ -417,7 +417,7 @@ extern "C" {
         ctx_: *const crypto_aead_aes256gcm_state,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_decrypt_detached_afternm(
         m: *mut libc::c_uchar,
         nsec: *mut libc::c_uchar,
@@ -430,25 +430,25 @@ extern "C" {
         ctx_: *const crypto_aead_aes256gcm_state,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_aes256gcm_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_ietf_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_ietf_nsecbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_ietf_npubbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_ietf_abytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_ietf_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_ietf_encrypt(
         c: *mut libc::c_uchar,
         clen_p: *mut libc::c_ulonglong,
@@ -461,7 +461,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_ietf_decrypt(
         m: *mut libc::c_uchar,
         mlen_p: *mut libc::c_ulonglong,
@@ -474,7 +474,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_ietf_encrypt_detached(
         c: *mut libc::c_uchar,
         mac: *mut libc::c_uchar,
@@ -488,7 +488,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_ietf_decrypt_detached(
         m: *mut libc::c_uchar,
         nsec: *mut libc::c_uchar,
@@ -501,25 +501,25 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_ietf_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_nsecbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_npubbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_abytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_encrypt(
         c: *mut libc::c_uchar,
         clen_p: *mut libc::c_ulonglong,
@@ -532,7 +532,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_decrypt(
         m: *mut libc::c_uchar,
         mlen_p: *mut libc::c_ulonglong,
@@ -545,7 +545,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_encrypt_detached(
         c: *mut libc::c_uchar,
         mac: *mut libc::c_uchar,
@@ -559,7 +559,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_decrypt_detached(
         m: *mut libc::c_uchar,
         nsec: *mut libc::c_uchar,
@@ -572,25 +572,25 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_chacha20poly1305_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_xchacha20poly1305_ietf_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_xchacha20poly1305_ietf_nsecbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_xchacha20poly1305_ietf_npubbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_xchacha20poly1305_ietf_abytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_xchacha20poly1305_ietf_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_xchacha20poly1305_ietf_encrypt(
         c: *mut libc::c_uchar,
         clen_p: *mut libc::c_ulonglong,
@@ -603,7 +603,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_xchacha20poly1305_ietf_decrypt(
         m: *mut libc::c_uchar,
         mlen_p: *mut libc::c_ulonglong,
@@ -616,7 +616,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_xchacha20poly1305_ietf_encrypt_detached(
         c: *mut libc::c_uchar,
         mac: *mut libc::c_uchar,
@@ -630,7 +630,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_xchacha20poly1305_ietf_decrypt_detached(
         m: *mut libc::c_uchar,
         nsec: *mut libc::c_uchar,
@@ -643,7 +643,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_aead_xchacha20poly1305_ietf_keygen(k: *mut libc::c_uchar);
 }
 #[repr(C)]
@@ -653,42 +653,42 @@ pub struct crypto_hash_sha512_state {
     pub count: [u64; 2usize],
     pub buf: [u8; 128usize],
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash_sha512_statebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash_sha512_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash_sha512(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
         inlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash_sha512_init(state: *mut crypto_hash_sha512_state) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash_sha512_update(
         state: *mut crypto_hash_sha512_state,
         in_: *const libc::c_uchar,
         inlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash_sha512_final(
         state: *mut crypto_hash_sha512_state,
         out: *mut libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -696,7 +696,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512_verify(
         h: *const libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -710,39 +710,39 @@ pub struct crypto_auth_hmacsha512_state {
     pub ictx: crypto_hash_sha512_state,
     pub octx: crypto_hash_sha512_state,
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512_statebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512_init(
         state: *mut crypto_auth_hmacsha512_state,
         key: *const libc::c_uchar,
         keylen: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512_update(
         state: *mut crypto_auth_hmacsha512_state,
         in_: *const libc::c_uchar,
         inlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512_final(
         state: *mut crypto_auth_hmacsha512_state,
         out: *mut libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512256_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512256_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512256(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -750,7 +750,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512256_verify(
         h: *const libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -759,42 +759,42 @@ extern "C" {
     ) -> libc::c_int;
 }
 pub type crypto_auth_hmacsha512256_state = crypto_auth_hmacsha512_state;
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512256_statebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512256_init(
         state: *mut crypto_auth_hmacsha512256_state,
         key: *const libc::c_uchar,
         keylen: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512256_update(
         state: *mut crypto_auth_hmacsha512256_state,
         in_: *const libc::c_uchar,
         inlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512256_final(
         state: *mut crypto_auth_hmacsha512256_state,
         out: *mut libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha512256_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_primitive() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -802,7 +802,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_verify(
         h: *const libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -810,7 +810,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_keygen(k: *mut libc::c_uchar);
 }
 #[repr(C)]
@@ -820,42 +820,42 @@ pub struct crypto_hash_sha256_state {
     pub count: u64,
     pub buf: [u8; 64usize],
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash_sha256_statebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash_sha256_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash_sha256(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
         inlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash_sha256_init(state: *mut crypto_hash_sha256_state) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash_sha256_update(
         state: *mut crypto_hash_sha256_state,
         in_: *const libc::c_uchar,
         inlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash_sha256_final(
         state: *mut crypto_hash_sha256_state,
         out: *mut libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha256_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha256_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha256(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -863,7 +863,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha256_verify(
         h: *const libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -877,42 +877,42 @@ pub struct crypto_auth_hmacsha256_state {
     pub ictx: crypto_hash_sha256_state,
     pub octx: crypto_hash_sha256_state,
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha256_statebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha256_init(
         state: *mut crypto_auth_hmacsha256_state,
         key: *const libc::c_uchar,
         keylen: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha256_update(
         state: *mut crypto_auth_hmacsha256_state,
         in_: *const libc::c_uchar,
         inlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha256_final(
         state: *mut crypto_auth_hmacsha256_state,
         out: *mut libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_auth_hmacsha256_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xsalsa20_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xsalsa20_noncebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xsalsa20_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xsalsa20(
         c: *mut libc::c_uchar,
         clen: libc::c_ulonglong,
@@ -920,7 +920,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xsalsa20_xor(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -929,7 +929,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xsalsa20_xor_ic(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -939,57 +939,57 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xsalsa20_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_seedbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_publickeybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_secretkeybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_beforenmbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_noncebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_macbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_seed_keypair(
         pk: *mut libc::c_uchar,
         sk: *mut libc::c_uchar,
         seed: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_keypair(
         pk: *mut libc::c_uchar,
         sk: *mut libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_beforenm(
         k: *mut libc::c_uchar,
         pk: *const libc::c_uchar,
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_boxzerobytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_zerobytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -999,7 +999,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_open(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -1009,7 +1009,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_afternm(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -1018,7 +1018,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xsalsa20poly1305_open_afternm(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -1027,38 +1027,38 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_seedbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_publickeybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_secretkeybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_noncebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_macbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_primitive() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_seed_keypair(
         pk: *mut libc::c_uchar,
         sk: *mut libc::c_uchar,
         seed: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_keypair(pk: *mut libc::c_uchar, sk: *mut libc::c_uchar) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_easy(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -1068,7 +1068,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_open_easy(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -1078,7 +1078,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_detached(
         c: *mut libc::c_uchar,
         mac: *mut libc::c_uchar,
@@ -1089,7 +1089,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_open_detached(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -1100,17 +1100,17 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_beforenmbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_beforenm(
         k: *mut libc::c_uchar,
         pk: *const libc::c_uchar,
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_easy_afternm(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -1119,7 +1119,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_open_easy_afternm(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -1128,7 +1128,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_detached_afternm(
         c: *mut libc::c_uchar,
         mac: *mut libc::c_uchar,
@@ -1138,7 +1138,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_open_detached_afternm(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -1148,10 +1148,10 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_sealbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_seal(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -1159,7 +1159,7 @@ extern "C" {
         pk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_seal_open(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -1168,13 +1168,13 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_zerobytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_boxzerobytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -1184,7 +1184,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_open(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -1194,7 +1194,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_afternm(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -1203,7 +1203,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_open_afternm(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -1212,19 +1212,19 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_hsalsa20_outputbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_hsalsa20_inputbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_hsalsa20_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_hsalsa20_constbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_hsalsa20(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -1232,19 +1232,19 @@ extern "C" {
         c: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_hchacha20_outputbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_hchacha20_inputbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_hchacha20_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_hchacha20_constbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_hchacha20(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -1252,19 +1252,19 @@ extern "C" {
         c: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa20_outputbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa20_inputbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa20_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa20_constbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa20(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -1272,19 +1272,19 @@ extern "C" {
         c: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa2012_outputbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa2012_inputbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa2012_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa2012_constbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa2012(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -1292,19 +1292,19 @@ extern "C" {
         c: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa208_outputbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa208_inputbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa208_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa208_constbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_salsa208(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -1318,34 +1318,34 @@ extern "C" {
 pub struct crypto_generichash_blake2b_state {
     pub opaque: [libc::c_uchar; 384usize],
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_bytes_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_bytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_keybytes_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_keybytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_saltbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_personalbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_statebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b(
         out: *mut libc::c_uchar,
         outlen: usize,
@@ -1355,7 +1355,7 @@ extern "C" {
         keylen: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_salt_personal(
         out: *mut libc::c_uchar,
         outlen: usize,
@@ -1367,7 +1367,7 @@ extern "C" {
         personal: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_init(
         state: *mut crypto_generichash_blake2b_state,
         key: *const libc::c_uchar,
@@ -1375,7 +1375,7 @@ extern "C" {
         outlen: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_init_salt_personal(
         state: *mut crypto_generichash_blake2b_state,
         key: *const libc::c_uchar,
@@ -1385,49 +1385,49 @@ extern "C" {
         personal: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_update(
         state: *mut crypto_generichash_blake2b_state,
         in_: *const libc::c_uchar,
         inlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_final(
         state: *mut crypto_generichash_blake2b_state,
         out: *mut libc::c_uchar,
         outlen: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_blake2b_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_bytes_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_bytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_keybytes_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_keybytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_primitive() -> *const libc::c_char;
 }
 pub type crypto_generichash_state = crypto_generichash_blake2b_state;
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_statebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash(
         out: *mut libc::c_uchar,
         outlen: usize,
@@ -1437,7 +1437,7 @@ extern "C" {
         keylen: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_init(
         state: *mut crypto_generichash_state,
         key: *const libc::c_uchar,
@@ -1445,49 +1445,49 @@ extern "C" {
         outlen: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_update(
         state: *mut crypto_generichash_state,
         in_: *const libc::c_uchar,
         inlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_final(
         state: *mut crypto_generichash_state,
         out: *mut libc::c_uchar,
         outlen: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_generichash_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
         inlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_hash_primitive() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kdf_blake2b_bytes_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kdf_blake2b_bytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kdf_blake2b_contextbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kdf_blake2b_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kdf_blake2b_derive_from_key(
         subkey: *mut libc::c_uchar,
         subkey_len: usize,
@@ -1496,22 +1496,22 @@ extern "C" {
         key: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kdf_bytes_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kdf_bytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kdf_contextbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kdf_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kdf_primitive() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kdf_derive_from_key(
         subkey: *mut libc::c_uchar,
         subkey_len: usize,
@@ -1520,35 +1520,35 @@ extern "C" {
         key: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kdf_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kx_publickeybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kx_secretkeybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kx_seedbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kx_sessionkeybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kx_primitive() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kx_seed_keypair(
         pk: *mut libc::c_uchar,
         sk: *mut libc::c_uchar,
         seed: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kx_keypair(pk: *mut libc::c_uchar, sk: *mut libc::c_uchar) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kx_client_session_keys(
         rx: *mut libc::c_uchar,
         tx: *mut libc::c_uchar,
@@ -1557,7 +1557,7 @@ extern "C" {
         server_pk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_kx_server_session_keys(
         rx: *mut libc::c_uchar,
         tx: *mut libc::c_uchar,
@@ -1572,16 +1572,16 @@ extern "C" {
 pub struct crypto_onetimeauth_poly1305_state {
     pub opaque: [libc::c_uchar; 256usize],
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_poly1305_statebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_poly1305_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_poly1305_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_poly1305(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -1589,7 +1589,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_poly1305_verify(
         h: *const libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -1597,42 +1597,42 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_poly1305_init(
         state: *mut crypto_onetimeauth_poly1305_state,
         key: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_poly1305_update(
         state: *mut crypto_onetimeauth_poly1305_state,
         in_: *const libc::c_uchar,
         inlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_poly1305_final(
         state: *mut crypto_onetimeauth_poly1305_state,
         out: *mut libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_poly1305_keygen(k: *mut libc::c_uchar);
 }
 pub type crypto_onetimeauth_state = crypto_onetimeauth_poly1305_state;
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_statebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_primitive() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -1640,7 +1640,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_verify(
         h: *const libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -1648,83 +1648,83 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_init(
         state: *mut crypto_onetimeauth_state,
         key: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_update(
         state: *mut crypto_onetimeauth_state,
         in_: *const libc::c_uchar,
         inlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_final(
         state: *mut crypto_onetimeauth_state,
         out: *mut libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_onetimeauth_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_alg_argon2i13() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_bytes_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_bytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_passwd_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_passwd_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_saltbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_strbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_strprefix() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_opslimit_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_opslimit_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_memlimit_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_memlimit_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_opslimit_interactive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_memlimit_interactive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_opslimit_moderate() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_memlimit_moderate() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_opslimit_sensitive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_memlimit_sensitive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i(
         out: *mut libc::c_uchar,
         outlen: libc::c_ulonglong,
@@ -1736,7 +1736,7 @@ extern "C" {
         alg: libc::c_int,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_str(
         out: *mut libc::c_char,
         passwd: *const libc::c_char,
@@ -1745,75 +1745,75 @@ extern "C" {
         memlimit: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_str_verify(
         str: *const libc::c_char,
         passwd: *const libc::c_char,
         passwdlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2i_str_needs_rehash(
         str: *const libc::c_char,
         opslimit: libc::c_ulonglong,
         memlimit: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_alg_argon2id13() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_bytes_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_bytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_passwd_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_passwd_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_saltbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_strbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_strprefix() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_opslimit_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_opslimit_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_memlimit_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_memlimit_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_opslimit_interactive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_memlimit_interactive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_opslimit_moderate() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_memlimit_moderate() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_opslimit_sensitive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_memlimit_sensitive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id(
         out: *mut libc::c_uchar,
         outlen: libc::c_ulonglong,
@@ -1825,7 +1825,7 @@ extern "C" {
         alg: libc::c_int,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_str(
         out: *mut libc::c_char,
         passwd: *const libc::c_char,
@@ -1834,81 +1834,81 @@ extern "C" {
         memlimit: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_str_verify(
         str: *const libc::c_char,
         passwd: *const libc::c_char,
         passwdlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_argon2id_str_needs_rehash(
         str: *const libc::c_char,
         opslimit: libc::c_ulonglong,
         memlimit: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_alg_argon2i13() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_alg_argon2id13() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_alg_default() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_bytes_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_bytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_passwd_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_passwd_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_saltbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_strbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_strprefix() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_opslimit_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_opslimit_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_memlimit_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_memlimit_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_opslimit_interactive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_memlimit_interactive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_opslimit_moderate() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_memlimit_moderate() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_opslimit_sensitive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_memlimit_sensitive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash(
         out: *mut libc::c_uchar,
         outlen: libc::c_ulonglong,
@@ -1920,7 +1920,7 @@ extern "C" {
         alg: libc::c_int,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_str(
         out: *mut libc::c_char,
         passwd: *const libc::c_char,
@@ -1929,7 +1929,7 @@ extern "C" {
         memlimit: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_str_alg(
         out: *mut libc::c_char,
         passwd: *const libc::c_char,
@@ -1939,74 +1939,74 @@ extern "C" {
         alg: libc::c_int,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_str_verify(
         str: *const libc::c_char,
         passwd: *const libc::c_char,
         passwdlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_str_needs_rehash(
         str: *const libc::c_char,
         opslimit: libc::c_ulonglong,
         memlimit: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_primitive() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_curve25519_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_curve25519_scalarbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_curve25519(
         q: *mut libc::c_uchar,
         n: *const libc::c_uchar,
         p: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_curve25519_base(
         q: *mut libc::c_uchar,
         n: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_scalarbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_primitive() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_base(q: *mut libc::c_uchar, n: *const libc::c_uchar) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult(
         q: *mut libc::c_uchar,
         n: *const libc::c_uchar,
         p: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xsalsa20poly1305_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xsalsa20poly1305_noncebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xsalsa20poly1305_macbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xsalsa20poly1305_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xsalsa20poly1305(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2015,7 +2015,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xsalsa20poly1305_open(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -2024,31 +2024,31 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xsalsa20poly1305_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xsalsa20poly1305_boxzerobytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xsalsa20poly1305_zerobytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_noncebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_macbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_primitive() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_easy(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2057,7 +2057,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_open_easy(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -2066,7 +2066,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_detached(
         c: *mut libc::c_uchar,
         mac: *mut libc::c_uchar,
@@ -2076,7 +2076,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_open_detached(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -2086,16 +2086,16 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_zerobytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_boxzerobytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2104,7 +2104,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_open(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -2113,16 +2113,16 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_chacha20_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_chacha20_noncebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_chacha20_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_chacha20(
         c: *mut libc::c_uchar,
         clen: libc::c_ulonglong,
@@ -2130,7 +2130,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_chacha20_xor(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2139,7 +2139,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_chacha20_xor_ic(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2149,19 +2149,19 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_chacha20_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_chacha20_ietf_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_chacha20_ietf_noncebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_chacha20_ietf_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_chacha20_ietf(
         c: *mut libc::c_uchar,
         clen: libc::c_ulonglong,
@@ -2169,7 +2169,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_chacha20_ietf_xor(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2178,7 +2178,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_chacha20_ietf_xor_ic(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2188,31 +2188,31 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_chacha20_ietf_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_abytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_headerbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_tag_message() -> libc::c_uchar;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_tag_push() -> libc::c_uchar;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_tag_rekey() -> libc::c_uchar;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_tag_final() -> libc::c_uchar;
 }
 #[repr(C)]
@@ -2222,20 +2222,20 @@ pub struct crypto_secretstream_xchacha20poly1305_state {
     pub nonce: [libc::c_uchar; 12usize],
     pub _pad: [libc::c_uchar; 8usize],
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_statebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_init_push(
         state: *mut crypto_secretstream_xchacha20poly1305_state,
         header: *mut libc::c_uchar,
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_push(
         state: *mut crypto_secretstream_xchacha20poly1305_state,
         c: *mut libc::c_uchar,
@@ -2247,14 +2247,14 @@ extern "C" {
         tag: libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_init_pull(
         state: *mut crypto_secretstream_xchacha20poly1305_state,
         header: *const libc::c_uchar,
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_pull(
         state: *mut crypto_secretstream_xchacha20poly1305_state,
         m: *mut libc::c_uchar,
@@ -2266,18 +2266,18 @@ extern "C" {
         adlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretstream_xchacha20poly1305_rekey(
         state: *mut crypto_secretstream_xchacha20poly1305_state,
     );
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_shorthash_siphash24_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_shorthash_siphash24_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_shorthash_siphash24(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -2285,13 +2285,13 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_shorthash_siphashx24_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_shorthash_siphashx24_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_shorthash_siphashx24(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -2299,16 +2299,16 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_shorthash_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_shorthash_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_shorthash_primitive() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_shorthash(
         out: *mut libc::c_uchar,
         in_: *const libc::c_uchar,
@@ -2316,7 +2316,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_shorthash_keygen(k: *mut libc::c_uchar);
 }
 #[repr(C)]
@@ -2324,25 +2324,25 @@ extern "C" {
 pub struct crypto_sign_ed25519ph_state {
     pub hs: crypto_hash_sha512_state,
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519ph_statebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519_seedbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519_publickeybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519_secretkeybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519(
         sm: *mut libc::c_uchar,
         smlen_p: *mut libc::c_ulonglong,
@@ -2351,7 +2351,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519_open(
         m: *mut libc::c_uchar,
         mlen_p: *mut libc::c_ulonglong,
@@ -2360,7 +2360,7 @@ extern "C" {
         pk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519_detached(
         sig: *mut libc::c_uchar,
         siglen_p: *mut libc::c_ulonglong,
@@ -2369,7 +2369,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519_verify_detached(
         sig: *const libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2377,54 +2377,54 @@ extern "C" {
         pk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519_keypair(
         pk: *mut libc::c_uchar,
         sk: *mut libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519_seed_keypair(
         pk: *mut libc::c_uchar,
         sk: *mut libc::c_uchar,
         seed: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519_pk_to_curve25519(
         curve25519_pk: *mut libc::c_uchar,
         ed25519_pk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519_sk_to_curve25519(
         curve25519_sk: *mut libc::c_uchar,
         ed25519_sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519_sk_to_seed(
         seed: *mut libc::c_uchar,
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519_sk_to_pk(
         pk: *mut libc::c_uchar,
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519ph_init(state: *mut crypto_sign_ed25519ph_state) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519ph_update(
         state: *mut crypto_sign_ed25519ph_state,
         m: *const libc::c_uchar,
         mlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519ph_final_create(
         state: *mut crypto_sign_ed25519ph_state,
         sig: *mut libc::c_uchar,
@@ -2432,7 +2432,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_ed25519ph_final_verify(
         state: *mut crypto_sign_ed25519ph_state,
         sig: *const libc::c_uchar,
@@ -2440,38 +2440,38 @@ extern "C" {
     ) -> libc::c_int;
 }
 pub type crypto_sign_state = crypto_sign_ed25519ph_state;
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_statebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_seedbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_publickeybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_secretkeybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_primitive() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_seed_keypair(
         pk: *mut libc::c_uchar,
         sk: *mut libc::c_uchar,
         seed: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_keypair(pk: *mut libc::c_uchar, sk: *mut libc::c_uchar) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign(
         sm: *mut libc::c_uchar,
         smlen_p: *mut libc::c_ulonglong,
@@ -2480,7 +2480,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_open(
         m: *mut libc::c_uchar,
         mlen_p: *mut libc::c_ulonglong,
@@ -2489,7 +2489,7 @@ extern "C" {
         pk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_detached(
         sig: *mut libc::c_uchar,
         siglen_p: *mut libc::c_ulonglong,
@@ -2498,7 +2498,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_verify_detached(
         sig: *const libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2506,17 +2506,17 @@ extern "C" {
         pk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_init(state: *mut crypto_sign_state) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_update(
         state: *mut crypto_sign_state,
         m: *const libc::c_uchar,
         mlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_final_create(
         state: *mut crypto_sign_state,
         sig: *mut libc::c_uchar,
@@ -2524,26 +2524,26 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_sign_final_verify(
         state: *mut crypto_sign_state,
         sig: *const libc::c_uchar,
         pk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_noncebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_primitive() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream(
         c: *mut libc::c_uchar,
         clen: libc::c_ulonglong,
@@ -2551,7 +2551,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xor(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2560,19 +2560,19 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa20_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa20_noncebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa20_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa20(
         c: *mut libc::c_uchar,
         clen: libc::c_ulonglong,
@@ -2580,7 +2580,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa20_xor(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2589,7 +2589,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa20_xor_ic(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2599,25 +2599,25 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa20_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_verify_16_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_verify_16(x: *const libc::c_uchar, y: *const libc::c_uchar) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_verify_32_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_verify_32(x: *const libc::c_uchar, y: *const libc::c_uchar) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_verify_64_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_verify_64(x: *const libc::c_uchar, y: *const libc::c_uchar) -> libc::c_int;
 }
 #[repr(C)]
@@ -2630,109 +2630,109 @@ pub struct randombytes_implementation {
     pub buf: ::core::option::Option<unsafe extern "C" fn(buf: *mut libc::c_void, size: usize)>,
     pub close: ::core::option::Option<unsafe extern "C" fn() -> libc::c_int>,
 }
-extern "C" {
+unsafe extern "C" {
     pub fn randombytes_seedbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn randombytes_buf(buf: *mut libc::c_void, size: usize);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn randombytes_buf_deterministic(
         buf: *mut libc::c_void,
         size: usize,
         seed: *const libc::c_uchar,
     );
 }
-extern "C" {
+unsafe extern "C" {
     pub fn randombytes_random() -> u32;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn randombytes_uniform(upper_bound: u32) -> u32;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn randombytes_stir();
 }
-extern "C" {
+unsafe extern "C" {
     pub fn randombytes_close() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn randombytes_set_implementation(impl_: *mut randombytes_implementation) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn randombytes_implementation_name() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub static mut randombytes_internal_implementation: randombytes_implementation;
 }
-extern "C" {
+unsafe extern "C" {
     pub static mut randombytes_sysrandom_implementation: randombytes_implementation;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_runtime_has_neon() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_runtime_has_sse2() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_runtime_has_sse3() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_runtime_has_ssse3() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_runtime_has_sse41() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_runtime_has_avx() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_runtime_has_avx2() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_runtime_has_avx512f() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_runtime_has_pclmul() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_runtime_has_aesni() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_runtime_has_rdrand() -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_memzero(pnt: *mut libc::c_void, len: usize);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_stackzero(len: usize);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_memcmp(
         b1_: *const libc::c_void,
         b2_: *const libc::c_void,
         len: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_compare(
         b1_: *const libc::c_uchar,
         b2_: *const libc::c_uchar,
         len: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_is_zero(n: *const libc::c_uchar, nlen: usize) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_increment(n: *mut libc::c_uchar, nlen: usize);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_add(a: *mut libc::c_uchar, b: *const libc::c_uchar, len: usize);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_sub(a: *mut libc::c_uchar, b: *const libc::c_uchar, len: usize);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_bin2hex(
         hex: *mut libc::c_char,
         hex_maxlen: usize,
@@ -2740,7 +2740,7 @@ extern "C" {
         bin_len: usize,
     ) -> *mut libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_hex2bin(
         bin: *mut libc::c_uchar,
         bin_maxlen: usize,
@@ -2751,10 +2751,10 @@ extern "C" {
         hex_end: *mut *const libc::c_char,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_base64_encoded_len(bin_len: usize, variant: libc::c_int) -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_bin2base64(
         b64: *mut libc::c_char,
         b64_maxlen: usize,
@@ -2763,7 +2763,7 @@ extern "C" {
         variant: libc::c_int,
     ) -> *mut libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_base642bin(
         bin: *mut libc::c_uchar,
         bin_maxlen: usize,
@@ -2775,31 +2775,31 @@ extern "C" {
         variant: libc::c_int,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_mlock(addr: *mut libc::c_void, len: usize) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_munlock(addr: *mut libc::c_void, len: usize) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_malloc(size: usize) -> *mut libc::c_void;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_allocarray(count: usize, size: usize) -> *mut libc::c_void;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_free(ptr: *mut libc::c_void);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_mprotect_noaccess(ptr: *mut libc::c_void) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_mprotect_readonly(ptr: *mut libc::c_void) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_mprotect_readwrite(ptr: *mut libc::c_void) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_pad(
         padded_buflen_p: *mut usize,
         buf: *mut libc::c_uchar,
@@ -2808,7 +2808,7 @@ extern "C" {
         max_buflen: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn sodium_unpad(
         unpadded_buflen_p: *mut usize,
         buf: *const libc::c_uchar,
@@ -2816,16 +2816,16 @@ extern "C" {
         blocksize: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xchacha20_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xchacha20_noncebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xchacha20_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xchacha20(
         c: *mut libc::c_uchar,
         clen: libc::c_ulonglong,
@@ -2833,7 +2833,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xchacha20_xor(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2842,7 +2842,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xchacha20_xor_ic(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2852,44 +2852,44 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_xchacha20_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_seedbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_publickeybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_secretkeybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_beforenmbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_noncebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_macbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_seed_keypair(
         pk: *mut libc::c_uchar,
         sk: *mut libc::c_uchar,
         seed: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_keypair(
         pk: *mut libc::c_uchar,
         sk: *mut libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_easy(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2899,7 +2899,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_open_easy(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -2909,7 +2909,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_detached(
         c: *mut libc::c_uchar,
         mac: *mut libc::c_uchar,
@@ -2920,7 +2920,7 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_open_detached(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -2931,14 +2931,14 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_beforenm(
         k: *mut libc::c_uchar,
         pk: *const libc::c_uchar,
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_easy_afternm(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2947,7 +2947,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_open_easy_afternm(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -2956,7 +2956,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_detached_afternm(
         c: *mut libc::c_uchar,
         mac: *mut libc::c_uchar,
@@ -2966,7 +2966,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_open_detached_afternm(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -2976,10 +2976,10 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_sealbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_seal(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -2987,7 +2987,7 @@ extern "C" {
         pk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_box_curve25519xchacha20poly1305_seal_open(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -2996,236 +2996,236 @@ extern "C" {
         sk: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_uniformbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_hashbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_scalarbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_nonreducedscalarbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_is_valid_point(p: *const libc::c_uchar) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_add(
         r: *mut libc::c_uchar,
         p: *const libc::c_uchar,
         q: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_sub(
         r: *mut libc::c_uchar,
         p: *const libc::c_uchar,
         q: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_from_uniform(
         p: *mut libc::c_uchar,
         r: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_from_hash(
         p: *mut libc::c_uchar,
         h: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_random(p: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_scalar_random(r: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_scalar_invert(
         recip: *mut libc::c_uchar,
         s: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_scalar_negate(neg: *mut libc::c_uchar, s: *const libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_scalar_complement(comp: *mut libc::c_uchar, s: *const libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_scalar_add(
         z: *mut libc::c_uchar,
         x: *const libc::c_uchar,
         y: *const libc::c_uchar,
     );
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_scalar_sub(
         z: *mut libc::c_uchar,
         x: *const libc::c_uchar,
         y: *const libc::c_uchar,
     );
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_scalar_mul(
         z: *mut libc::c_uchar,
         x: *const libc::c_uchar,
         y: *const libc::c_uchar,
     );
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ed25519_scalar_reduce(r: *mut libc::c_uchar, s: *const libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_hashbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_scalarbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_nonreducedscalarbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_is_valid_point(p: *const libc::c_uchar) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_add(
         r: *mut libc::c_uchar,
         p: *const libc::c_uchar,
         q: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_sub(
         r: *mut libc::c_uchar,
         p: *const libc::c_uchar,
         q: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_from_hash(
         p: *mut libc::c_uchar,
         r: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_random(p: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_scalar_random(r: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_scalar_invert(
         recip: *mut libc::c_uchar,
         s: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_scalar_negate(neg: *mut libc::c_uchar, s: *const libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_scalar_complement(
         comp: *mut libc::c_uchar,
         s: *const libc::c_uchar,
     );
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_scalar_add(
         z: *mut libc::c_uchar,
         x: *const libc::c_uchar,
         y: *const libc::c_uchar,
     );
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_scalar_sub(
         z: *mut libc::c_uchar,
         x: *const libc::c_uchar,
         y: *const libc::c_uchar,
     );
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_scalar_mul(
         z: *mut libc::c_uchar,
         x: *const libc::c_uchar,
         y: *const libc::c_uchar,
     );
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_core_ristretto255_scalar_reduce(r: *mut libc::c_uchar, s: *const libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_ed25519_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_ed25519_scalarbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_ed25519(
         q: *mut libc::c_uchar,
         n: *const libc::c_uchar,
         p: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_ed25519_noclamp(
         q: *mut libc::c_uchar,
         n: *const libc::c_uchar,
         p: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_ed25519_base(
         q: *mut libc::c_uchar,
         n: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_ed25519_base_noclamp(
         q: *mut libc::c_uchar,
         n: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_ristretto255_bytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_ristretto255_scalarbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_ristretto255(
         q: *mut libc::c_uchar,
         n: *const libc::c_uchar,
         p: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_scalarmult_ristretto255_base(
         q: *mut libc::c_uchar,
         n: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xchacha20poly1305_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xchacha20poly1305_noncebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xchacha20poly1305_macbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xchacha20poly1305_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xchacha20poly1305_easy(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -3234,7 +3234,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xchacha20poly1305_open_easy(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -3243,7 +3243,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xchacha20poly1305_detached(
         c: *mut libc::c_uchar,
         mac: *mut libc::c_uchar,
@@ -3253,7 +3253,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_secretbox_xchacha20poly1305_open_detached(
         m: *mut libc::c_uchar,
         c: *const libc::c_uchar,
@@ -3263,52 +3263,52 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_bytes_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_bytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_passwd_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_passwd_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_saltbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_strbytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_strprefix() -> *const libc::c_char;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_opslimit_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_opslimit_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_memlimit_min() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_memlimit_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_opslimit_interactive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_memlimit_interactive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_opslimit_sensitive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_memlimit_sensitive() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256(
         out: *mut libc::c_uchar,
         outlen: libc::c_ulonglong,
@@ -3319,7 +3319,7 @@ extern "C" {
         memlimit: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_str(
         out: *mut libc::c_char,
         passwd: *const libc::c_char,
@@ -3328,14 +3328,14 @@ extern "C" {
         memlimit: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_str_verify(
         str: *const libc::c_char,
         passwd: *const libc::c_char,
         passwdlen: libc::c_ulonglong,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_ll(
         passwd: *const u8,
         passwdlen: usize,
@@ -3348,23 +3348,23 @@ extern "C" {
         buflen: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_pwhash_scryptsalsa208sha256_str_needs_rehash(
         str: *const libc::c_char,
         opslimit: libc::c_ulonglong,
         memlimit: usize,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa2012_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa2012_noncebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa2012_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa2012(
         c: *mut libc::c_uchar,
         clen: libc::c_ulonglong,
@@ -3372,7 +3372,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa2012_xor(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -3381,19 +3381,19 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa2012_keygen(k: *mut libc::c_uchar);
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa208_keybytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa208_noncebytes() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa208_messagebytes_max() -> usize;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa208(
         c: *mut libc::c_uchar,
         clen: libc::c_ulonglong,
@@ -3401,7 +3401,7 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa208_xor(
         c: *mut libc::c_uchar,
         m: *const libc::c_uchar,
@@ -3410,6 +3410,6 @@ extern "C" {
         k: *const libc::c_uchar,
     ) -> libc::c_int;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn crypto_stream_salsa208_keygen(k: *mut libc::c_uchar);
 }

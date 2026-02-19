@@ -1,8 +1,8 @@
 //! Cryptographic random number generation.
 
-use ffi;
+use crate::ffi;
 #[cfg(not(feature = "std"))]
-use prelude::*;
+use crate::prelude::*;
 
 /// The number of seed bytes to use for the deterministic RNG functions
 /// [`randombytes_buf_deterministic()`] and
