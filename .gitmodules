@@ -1,4 +1,4 @@
 [submodule "libsodium-sys/libsodium"]
 	path = libsodium-sys/libsodium
 	url = https://github.com/Bubbler-Messaging/libsodium.git
-	branch = stable
+	branch = bubbler_fork_1
